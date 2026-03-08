@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Interactive Photo Gallery</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>📸 Photo Gallery</h1>
+    </header>
+    
+    <main>
+        <!-- Main Display Area -->
+        <div id="image">
+            Hover over an image below to display here.
+        </div>
+        
+        <!-- Thumbnail Images -->
+        <div class="thumbnails">
+            <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=200" 
+                 alt="Gray tabby cat with green eyes"
+                 onmouseover="upDate(this)" 
+                 onmouseout="undo()">
+            
+            <img src="https://images.unsplash.com/photo-1573865526739-10659fec78a5?w=200" 
+                 alt="Orange ginger cat lounging on couch"
+                 onmouseover="upDate(this)" 
+                 onmouseout="undo()">
+            
+            <img src="https://images.unsplash.com/photo-1495360019602-e001922274b7?w=200" 
+                 alt="Black and white kitten playing"
+                 onmouseover="upDate(this)" 
+                 onmouseout="undo()">
+            
+            <img src="https://images.unsplash.com/photo-1533738363-b7f9aef128ce?w=200" 
+                 alt="Cat with sunglasses lying on grass"
+                 onmouseover="upDate(this)" 
+                 onmouseout="undo()">
+        </div>
+    </main>
+    
+    <footer>
+        <p>&copy; 2024 JavaScript Photo Gallery</p>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>
