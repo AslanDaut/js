@@ -1,132 +1,54 @@
-/* Reset & Base Styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+// Initialize gallery when page loads
+function initGallery() {
+    console.log("Gallery initialized - onload event triggered");
+    addTabIndex();
 }
 
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f0f4f8;
-    color: #333;
-    line-height: 1.6;
-}
-
-/* Header */
-header {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: #fff;
-    text-align: center;
-    padding: 40px 20px;
-}
-
-header h1 {
-    font-size: 2.5rem;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-}
-
-/* Main Content */
-main {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 40px 20px;
-}
-
-/* Main Display Area */
-#image {
-    width: 100%;
-    height: 450px;
-    background-color: #2c3e50;
-    background-image: url('');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
-    font-size: 1.8rem;
-    text-align: center;
-    border-radius: 15px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-    padding: 30px;
-    margin-bottom: 40px;
-    transition: all 0.3s ease;
-}
-
-/* Thumbnails Container */
-.thumbnails {
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-    flex-wrap: wrap;
-}
-
-/* Figure Elements */
-figure {
-    margin: 0;
-    text-align: center;
-}
-
-/* Thumbnail Images */
-.thumbnails img {
-    width: 220px;
-    height: 165px;
-    object-fit: cover;
-    border: 5px solid #fff;
-    border-radius: 10px;
-    cursor: pointer;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease;
-    display: block;
-}
-
-/* Hover and Focus Effects */
-.thumbnails img:hover,
-.thumbnails img:focus {
-    transform: scale(1.1);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-    border-color: #667eea;
-    outline: 3px solid #764ba2;
-    outline-offset: 3px;
-}
-
-/* Focus visible for better accessibility */
-.thumbnails img:focus-visible {
-    outline: 4px solid #ff6b6b;
-    outline-offset: 4px;
-}
-
-/* Figcaption */
-figcaption {
-    margin-top: 10px;
-    font-weight: 600;
-    color: #555;
-    font-size: 0.95rem;
-}
-
-/* Footer */
-footer {
-    text-align: center;
-    padding: 25px;
-    background: #2c3e50;
-    color: #fff;
-    margin-top: 50px;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    #image {
-        height: 300px;
-        font-size: 1.3rem;
+// Add tabindex to all images using a for loop
+function addTabIndex() {
+    var images = document.querySelectorAll('.thumbnails img');
+    
+    for (var i = 0; i < images.length; i++) {
+        images[i].setAttribute('tabindex', '0');
+        console.log("Added tabindex to image " + (i + 1) + ": " + images[i].alt);
     }
     
-    .thumbnails img {
-        width: 160px;
-        height: 120px;
-    }
+    console.log("Total images with tabindex: " + images.length);
+}
+
+// Function called when mouse is over an image OR when image receives focus
+function upDate(previewPic) {
+    // Get the alt text from the hovered/focused image
+    var altText = previewPic.alt;
     
-    header h1 {
-        font-size: 1.8rem;
-    }
+    // Get the source URL from the hovered/focused image
+    var imageUrl = previewPic.src;
+    
+    // Get the main display element
+    var displayElement = document.getElementById("image");
+    
+    // Update the text content with alt text
+    displayElement.innerHTML = altText;
+    
+    // Update the background image
+    displayElement.style.backgroundImage = 'url("' + imageUrl + '")';
+    
+    // For debugging - check console (F12)
+    console.log("Image displayed - Alt: " + altText);
+    console.log("Image URL: " + imageUrl);
+}
+
+// Function called when mouse leaves an image OR when image loses focus
+function undo() {
+    // Get the main display element
+    var displayElement = document.getElementById("image");
+    
+    // Reset the text to original
+    displayElement.innerHTML = "Hover over or tab to an image below to display here.";
+    
+    // Reset the background image to empty
+    displayElement.style.backgroundImage = "url('')";
+    
+    // For debugging
+    console.log("Image reset to default state");
 }
