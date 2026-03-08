@@ -3,46 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JavaScript Interactive Photo Gallery</title>
+    <title>Accessible Photo Gallery</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body onload="initGallery()">
     <header>
-        <h1>📸 Photo Gallery</h1>
+        <h1>🌟 Accessible Photo Gallery</h1>
     </header>
     
     <main>
         <!-- Main Display Area -->
-        <div id="image">
-            Hover over an image below to display here.
+        <div id="image" role="img" aria-live="polite">
+            Hover over or tab to an image below to display here.
         </div>
         
         <!-- Thumbnail Images -->
         <div class="thumbnails">
-            <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=200" 
-                 alt="Gray tabby cat with green eyes"
-                 onmouseover="upDate(this)" 
-                 onmouseout="undo()">
+            <figure>
+                <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=300" 
+                     alt="Gray tabby cat with green eyes sitting on wooden floor"
+                     onmouseover="upDate(this)" 
+                     onmouseout="undo()"
+                     onfocus="upDate(this)" 
+                     onblur="undo()">
+                <figcaption>Tabby Cat</figcaption>
+            </figure>
             
-            <img src="https://images.unsplash.com/photo-1573865526739-10659fec78a5?w=200" 
-                 alt="Orange ginger cat lounging on couch"
-                 onmouseover="upDate(this)" 
-                 onmouseout="undo()">
+            <figure>
+                <img src="https://images.unsplash.com/photo-1573865526739-10659fec78a5?w=300" 
+                     alt="Orange ginger cat lounging comfortably on gray couch"
+                     onmouseover="upDate(this)" 
+                     onmouseout="undo()"
+                     onfocus="upDate(this)" 
+                     onblur="undo()">
+                <figcaption>Ginger Cat</figcaption>
+            </figure>
             
-            <img src="https://images.unsplash.com/photo-1495360019602-e001922274b7?w=200" 
-                 alt="Black and white kitten playing"
-                 onmouseover="upDate(this)" 
-                 onmouseout="undo()">
+            <figure>
+                <img src="https://images.unsplash.com/photo-1495360019602-e001922274b7?w=300" 
+                     alt="Black and white kitten playing with toy"
+                     onmouseover="upDate(this)" 
+                     onmouseout="undo()"
+                     onfocus="upDate(this)" 
+                     onblur="undo()">
+                <figcaption>Playful Kitten</figcaption>
+            </figure>
             
-            <img src="https://images.unsplash.com/photo-1533738363-b7f9aef128ce?w=200" 
-                 alt="Cat with sunglasses lying on grass"
-                 onmouseover="upDate(this)" 
-                 onmouseout="undo()">
+            <figure>
+                <img src="https://images.unsplash.com/photo-1533738363-b7f9aef128ce?w=300" 
+                     alt="Cat wearing sunglasses relaxing on green grass"
+                     onmouseover="upDate(this)" 
+                     onmouseout="undo()"
+                     onfocus="upDate(this)" 
+                     onblur="undo()">
+                <figcaption>Cool Cat</figcaption>
+            </figure>
+            
+            <figure>
+                <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=300" 
+                     alt="Siamese cat with blue eyes on white background"
+                     onmouseover="upDate(this)" 
+                     onmouseout="undo()"
+                     onfocus="upDate(this)" 
+                     onblur="undo()">
+                <figcaption>Siamese Cat</figcaption>
+            </figure>
+            
+            <figure>
+                <img src="https://images.unsplash.com/photo-1574158622682-e40e69881006?w=300" 
+                     alt="White fluffy cat sleeping peacefully on blanket"
+                     onmouseover="upDate(this)" 
+                     onmouseout="undo()"
+                     onfocus="upDate(this)" 
+                     onblur="undo()">
+                <figcaption>Sleeping Cat</figcaption>
+            </figure>
         </div>
     </main>
     
     <footer>
-        <p>&copy; 2024 JavaScript Photo Gallery</p>
+        <p>&copy; 2024 Accessible Photo Gallery</p>
     </footer>
     
     <script src="script.js"></script>
